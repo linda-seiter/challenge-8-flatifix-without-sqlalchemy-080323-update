@@ -151,7 +151,7 @@ build out any helper methods if needed.
   - Returns the `Viewer` instance with the most positive reviews
   - Returns `None` if there are no positive reviews
   - _hint: will need a way to remember all viewer objects_
-  <!-- - Uncomment lines 204-216 in the magazine_test file -->
+  <!-- - Uncomment lines 148-160 in the viewer_test file -->
 
 ### Bonus: For any invalid inputs raise an `Exception`.
 - First, **comment out** the following lines
