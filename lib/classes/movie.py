@@ -1,19 +1,35 @@
 class Movie:
+    all = []
+    
     def __init__(self, title):
         self.title = title
+        type(self).all.append(self)
+
+    @property
+    def title(self):
+        return self._title
+    
+    @title.setter
+    def title(self, title):
+        if isinstance(title, str) and title:
+            self._title = title
+        else:
+            return None
+            # raise Exception("Title must be a string between 1 and 255 characters, inclusive."
 
     def reviews(self):
-        pass
+        return [review for review in Review.all if review.movie == self]
 
     def reviewers(self):
-        pass
+        return list({review.viewer for review in self.reviews()})
 
     def average_rating(self):
-        pass
+        return mean([review.rating for review in self.reviews()]) if self.reviews() else None
 
     @classmethod
     def highest_rated(cls):
-        pass
+        return max(cls.all, key=lambda movie: movie.average_rating())
 
 
 from classes.review import Review
+from statistics import mean
