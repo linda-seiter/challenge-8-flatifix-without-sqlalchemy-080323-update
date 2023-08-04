@@ -1,14 +1,11 @@
 class Movie:
-
     def __init__(self, title):
         self.title = title
 
-    def reviews(self, new_review=None):
-        from classes.review import Review
+    def reviews(self):
         pass
 
-    def reviewers(self, new_reviewer=None):
-        from classes.review import Review
+    def reviewers(self):
         pass
 
     def average_rating(self):
@@ -17,3 +14,6 @@ class Movie:
     @classmethod
     def highest_rated(cls):
         pass
+
+
+from classes.review import Review
