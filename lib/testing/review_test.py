@@ -65,8 +65,8 @@ class TestReview:
         '''review has a viewer'''
         movie = Movie("Breathless")
         viewer_1 = Viewer("snap_the_turtle")
-        review_1 = Review(movie, viewer_1, 5)
-        review_2 = Review(movie, viewer_1, 4)
+        review_1 = Review(viewer_1, movie, 5)
+        review_2 = Review(viewer_1, movie, 4)
         
         assert review_1.viewer == viewer_1
         assert review_2.viewer == viewer_1
@@ -75,23 +75,23 @@ class TestReview:
         """viewer is of type Viewer"""
         movie = Movie("Breathless")
         viewer = Viewer("snap_the_turtle")
-        review_1 = Review(movie, viewer, 5)
-        review_2 = Review(movie, viewer, 4)
+        review_1 = Review(viewer, movie, 5)
+        review_2 = Review(viewer, movie, 4)
         
         assert isinstance(review_1.viewer, Viewer)
         assert isinstance(review_2.viewer, Viewer)
 
         # uncomment the next two lines if using Exceptions
         # with pytest.raises(Exception):
-        #     Review(movie, "Penny the Dog", 3)
+        #     Review("Penny the Dog", movie, 3)
 
     def test_has_a_movie(self):
         '''review has a movie'''
         movie_1 = Movie("Breathless")
         movie_2 = Movie("The 400 Blows")
         viewer_1 = Viewer("snap_the_turtle")
-        review_1 = Review(movie_1, viewer_1, 5)
-        review_2 = Review(movie_2, viewer_1, 4)
+        review_1 = Review(viewer_1, movie_1, 5)
+        review_2 = Review(viewer_1, movie_2, 4)
         
         assert review_1.movie == movie_1
         assert review_2.movie == movie_2
@@ -101,8 +101,8 @@ class TestReview:
         movie_1 = Movie("Breathless")
         movie_2 = Movie("The 400 Blows")
         viewer_1 = Viewer("snap_the_turtle")
-        review_1 = Review(movie_1, viewer_1, 5)
-        review_2 = Review(movie_2, viewer_1, 4)
+        review_1 = Review(viewer_1, movie_1, 5)
+        review_2 = Review(viewer_1, movie_2, 4)
         
         assert isinstance(review_1.movie, Movie)
         assert isinstance(review_2.movie, Movie)
@@ -116,8 +116,8 @@ class TestReview:
         Review.all = []
         movie = Movie("Breathless")
         viewer = Viewer("snap_the_turtle")
-        review_1 = Review(movie, viewer, 5)
-        review_2 = Review(movie, viewer, 4)
+        review_1 = Review(viewer, movie, 5)
+        review_2 = Review(viewer, movie, 4)
         
         assert len(Review.all) == 2
         assert review_1 in Review.all
