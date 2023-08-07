@@ -1,6 +1,6 @@
 class Movie:
     all = []
-    
+
     def __init__(self, title):
         self.title = title
         type(self).all.append(self)
@@ -8,7 +8,7 @@ class Movie:
     @property
     def title(self):
         return self._title
-    
+
     @title.setter
     def title(self, title):
         if isinstance(title, str) and title:
@@ -24,7 +24,11 @@ class Movie:
         return list({review.viewer for review in self.reviews()})
 
     def average_rating(self):
-        return mean([review.rating for review in self.reviews()]) if self.reviews() else None
+        return (
+            round(mean([review.rating for review in self.reviews()]), 1)
+            if self.reviews()
+            else None
+        )
 
     @classmethod
     def highest_rated(cls):

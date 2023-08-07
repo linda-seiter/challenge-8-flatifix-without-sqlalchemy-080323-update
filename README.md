@@ -128,7 +128,7 @@ build out any helper methods if needed.
 
 - `Viewer has_reviewed_movie(movie)`
   - Receives a `Movie` instance as argument
-  - Returns `True` if the viewer has reviewed `Movie` instance provided
+  - Returns `True` if the viewer has reviewed the `Movie` instance provided
   - Returns `False` otherwise
 - `Viewer add_review(movie, rating)`
   - Receives a `Movie` instance and a rating integer as arguments
@@ -137,7 +137,8 @@ build out any helper methods if needed.
 #### Movie
 
 - `Movie average_rating()`
-  - Returns the average of all ratings for the `Movie` instance
+  - Returns the average of all ratings for the `Movie` instance.
+  - Rounds the result to the first decimal digit
   - Returns `None` if there are no reviews for the `Movie` instance
   - Reminder: you can calculate the average by adding all ratings together and dividing by the total number of ratings.
 - `Movie classmethod highest_rated()`
@@ -147,7 +148,7 @@ build out any helper methods if needed.
 ### Bonus: Aggregate and Association Method
 
 - `Viewer classmethod top_positive_reviewer()`
-  - Reminder: a review is considered positive if its rating is between 3 and 5, inclusive
+  - **Reminder**: a review is considered positive if its rating is between 3 and 5, inclusive
   - Returns the `Viewer` instance with the most positive reviews
   - Returns `None` if there are no positive reviews
   - _hint: will need a way to remember all viewer objects_
@@ -156,15 +157,15 @@ build out any helper methods if needed.
 ### Bonus: For any invalid inputs raise an `Exception`.
 - First, **comment out** the following lines
   - **viewer_test.py**
-    - lines 
+    - lines 28-29, 43-44
   - **movie_test.py**
-    - lines 
+    - lines 24-25
   - **review_test.py**
-    - lines 
+    - lines 27-28, 31-32, 49-50, and 53-54
 - Then, **uncomment** the following lines in the test files
   - **viewer_test.py**
-    - lines 
+    - lines 32-33, 47-48, and 51-52
   - **movie_test.py**
-    - lines 
+    - lines 28-29, and 40-41
   - **review_test.py**
-    - lines 
+    - lines 35-36, 39-40, 57-58, 61-62, 85-86, and 111-112

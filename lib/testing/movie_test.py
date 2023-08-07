@@ -114,8 +114,9 @@ class TestMovie:
         Review(viewer=Viewer("username6"), movie=movie, rating=4)
         Review(viewer=Viewer("username7"), movie=movie, rating=2)
         Review(viewer=Viewer("username8"), movie=movie, rating=3)
+        Review(viewer=Viewer("username9"), movie=movie, rating=4)
 
-        assert movie.average_rating() == 3
+        assert movie.average_rating() == 3.1
 
     def test_shows_highest_rated(self):
         '''returns the highest rated movie'''
