@@ -100,9 +100,11 @@ build out any helper methods if needed.
 - `Review property viewer`
   - Returns the viewer object who wrote the review
   - Must be of type `Viewer`
+  - Viewers **can be changed** after the review object is initialized
 - `Review property movie`
   - Returns the movie that is being reviewed
   - Must be of type `Movie`
+  - Movies **can be changed** after the review object is initialized
 
 #### Viewer
 
