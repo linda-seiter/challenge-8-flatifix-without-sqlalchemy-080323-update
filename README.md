@@ -152,7 +152,7 @@ build out any helper methods if needed.
   - **Reminder**: a review is considered positive if its rating is between 3 and 5, inclusive
   - Returns the `Viewer` instance with the most positive reviews
   - Returns `None` if there are no positive reviews
-  - Uncomment lines 148-160 in the viewer_test file
+  - Uncomment lines 141-157 in the viewer_test file
   - _hint: will need a way to remember all viewer objects_
 
 ### Bonus: For any invalid inputs raise an `Exception`.
