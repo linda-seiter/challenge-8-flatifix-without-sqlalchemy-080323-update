@@ -105,7 +105,7 @@ class TestMovie:
     def test_calculates_average_rating(self):
         '''calculates and returns the average of its review ratings'''
         movie = Movie("My Neighbor Totoro")
-
+        Review.all = []
         Review(viewer=Viewer("username1"), movie=movie, rating=1)
         Review(viewer=Viewer("username2"), movie=movie, rating=3)
         Review(viewer=Viewer("username3"), movie=movie, rating=2)
@@ -117,10 +117,13 @@ class TestMovie:
         Review(viewer=Viewer("username9"), movie=movie, rating=4)
 
         assert movie.average_rating() == 3.1
+        
+        Review.all = []
+        assert movie.average_rating() is None
 
     def test_shows_highest_rated(self):
         '''returns the highest rated movie'''
-        Movie.all = []
+        Review.all = []
         movie_1 = Movie("Avatar: The Way of Water")
         movie_2 = Movie("Scarface")
         movie_3 = Movie("Rashomon")
@@ -140,3 +143,5 @@ class TestMovie:
         assert Movie.highest_rated() == movie_3
         assert Movie.highest_rated().title == "Rashomon"
 
+        Review.all = []
+        assert Movie.highest_rated() is None

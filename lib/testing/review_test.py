@@ -71,15 +71,23 @@ class TestReview:
         assert review_1.viewer == viewer_1
         assert review_2.viewer == viewer_1
 
-    def test_viewer_of_type_viewer(self):
-        """viewer is of type Viewer"""
+    def test_viewer_of_type_viewer_and_mutable(self):
+        """viewer is of type Viewer and mutable"""
         movie = Movie("Breathless")
-        viewer = Viewer("snap_the_turtle")
-        review_1 = Review(viewer, movie, 5)
-        review_2 = Review(viewer, movie, 4)
+        viewer_1 = Viewer("snap_the_turtle")
+        viewer_2 = Viewer("snag_the_snail")
+        review_1 = Review(viewer_1, movie, 5)
+        review_2 = Review(viewer_1, movie, 4)
         
         assert isinstance(review_1.viewer, Viewer)
         assert isinstance(review_2.viewer, Viewer)
+        
+        review_1.viewer = viewer_2
+        assert review_1.viewer.username == "snag_the_snail"
+
+        #comment out the next two lines if using Exceptions
+        review_1.viewer = "Penny the Dog"
+        assert review_1.viewer.username == "snag_the_snail"
 
         # uncomment the next two lines if using Exceptions
         # with pytest.raises(Exception):
@@ -96,8 +104,8 @@ class TestReview:
         assert review_1.movie == movie_1
         assert review_2.movie == movie_2
 
-    def test_viewer_of_type_viewer(self):
-        """movie is of type Movie"""
+    def test_movie_of_type_movie_and_mutable(self):
+        """movie is of type Movie and mutable"""
         movie_1 = Movie("Breathless")
         movie_2 = Movie("The 400 Blows")
         viewer_1 = Viewer("snap_the_turtle")
@@ -106,10 +114,17 @@ class TestReview:
         
         assert isinstance(review_1.movie, Movie)
         assert isinstance(review_2.movie, Movie)
+        
+        review_1.movie = movie_2
+        assert review_1.movie.title == "The 400 Blows"
+
+        #comment out the next two lines if using Exceptions
+        review_1.movie = "Indianan Jones"
+        assert review_1.movie.title == "The 400 Blows"
 
         # uncomment the next two lines if using Exceptions
         # with pytest.raises(Exception):
-        #     Review("Breathless", viewer_1, 3)
+        #     Review(viewer_1, "Breathless", 3)
 
     def test_get_all_reviews(self):
         """Review class has all attribute"""
