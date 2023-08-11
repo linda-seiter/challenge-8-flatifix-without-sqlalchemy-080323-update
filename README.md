@@ -158,15 +158,15 @@ build out any helper methods if needed.
 ### Bonus: For any invalid inputs raise an `Exception`.
 - First, **comment out** the following lines
   - **viewer_test.py**
-    - lines 28-29, 43-44
+    - lines 28-29, and 43-44
   - **movie_test.py**
     - lines 24-25
   - **review_test.py**
-    - lines 27-28, 31-32, 49-50, and 53-54
+    - lines 27-28, 31-32, 49-50, 53-54, 89-90, and 122-123
 - Then, **uncomment** the following lines in the test files
   - **viewer_test.py**
     - lines 32-33, 47-48, and 51-52
   - **movie_test.py**
     - lines 28-29, and 40-41
   - **review_test.py**
-    - lines 35-36, 39-40, 57-58, 61-62, 85-86, and 111-112
+    - lines 35-36, 39-40, 57-58, 61-62, 93-94, and 126-127
