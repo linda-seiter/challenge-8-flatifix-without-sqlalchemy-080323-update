@@ -51,13 +51,6 @@ class TestViewer:
         # with pytest.raises(Exception):
         #     Viewer("abcdefghijklmnopq")
 
-    # def test_username_uniqueness(self):
-    #     '''requires username to be unique.'''
-    #     Viewer("joey_the_dog")
-
-    #     with pytest.raises(Exception):
-    #         Viewer("joey_the_dog")
-
     def test_has_reviews(self):
         """viewer has a list of all reviews submitted"""
         viewer_1 = Viewer("fabio_the_hmstr")
@@ -147,6 +140,7 @@ class TestViewer:
 
     # def test_top_positive_reviewer(self):
     #     """returns the viewer who has the most positive reviews"""
+    #     Review.all = []
     #     viewer_1 = Viewer("fabio_the_hmstr")
     #     viewer_2 = Viewer("fanny_the_dog")
     #     movie_1 = Movie("The Bourne Ultimatum")
@@ -158,3 +152,6 @@ class TestViewer:
     #     Review(viewer_2, movie_2, 1)
 
     #     assert Viewer.top_positive_reviewer() == viewer_2
+    
+    #     Review.all = []
+    #     assert Viewer.top_positive_reviewer() is None

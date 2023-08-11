@@ -32,7 +32,8 @@ class Movie:
 
     @classmethod
     def highest_rated(cls):
-        return max(cls.all, key=lambda movie: movie.average_rating())
+        non_none_movies = [movie for movie in cls.all if movie.average_rating() is not None]
+        return max(non_none_movies, key=lambda movie: movie.average_rating()) if non_none_movies else None
 
 
 from classes.review import Review

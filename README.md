@@ -80,7 +80,6 @@ build out any helper methods if needed.
   - Usernames must be between 6 and 16 characters,
     inclusive
   - Usernames **can be** changed after the Viewer is initialized
-  - _Stretch goal: usernames must be unique_
 
 #### Review
 
