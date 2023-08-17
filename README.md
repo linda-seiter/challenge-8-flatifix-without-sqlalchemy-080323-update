@@ -22,7 +22,7 @@ start coding_. Remember to identify a single source of truth for your data.
 
 ## Instructions
 
-To get started, run `pipenv install` while inside of this directory.
+To get started, run `pipenv install` while inside of this directory. Then run `pipenv shell` to jump into the shell.
 
 Build out all of the methods listed in the deliverables. The methods are listed
 in a suggested order, but you can feel free to tackle the ones you think are
@@ -63,90 +63,110 @@ build out any helper methods if needed.
 #### Movie
 
 - `Movie __init__(self, title)`
-  - `Movie` is initialized with a title (string).
-  - Title **can be** changed after the `Movie` is initialized.
-- `Movie property title()`
-  - Returns the `Movie`'s title.
-  - Titles must be strings greater than 0 characters.
-  - `raise Exception` if validation fails.
-- `Movie class attribute all`
-  - Returns a list of all movies.
+  - `Movie` is initialized with a title
+- `Movie property title`
+  - Returns the movie's title
+  - Titles must be of type `str`
+  - Titles must be longer than 0 characters
+  - Title **can be** changed after the `Movie` is initialized
 
 #### Viewer
 
 - `Viewer __init__(self, username)`
-  - `Viewer` is initialized with a username (string)
-  - Usernames **can be** changed after the Viewer is initialized
-- `Viewer property username()`
-  - Returns the Viewer's username
-  - Usernames must be strings between 6 and 16 characters,
+  - `Viewer` is initialized with a username
+- `Viewer property username`
+  - Returns the viewer's username
+  - Usernames must be of type `str`
+  - Usernames must be between 6 and 16 characters,
     inclusive
-  - `raise Exception` if validation fails
-  - _Stretch goal: usernames must be unique_
+  - Usernames **can be** changed after the Viewer is initialized
 
 #### Review
 
 - `Review __init__(self, viewer, movie, rating)`
-  - `Review` is initialized with a `Viewer` instance, a `Movie` instance, and a
-    rating (number)
-  - Instantiating a review should add it to its `viewer`'s `review`s
-  - Instantiating a review should add it to its `movie`'s `reviews`
-- `Review property rating()`
-  - Returns the rating for the `Review` instance
-  - Ratings must be integers between 1 and 5, inclusive
-  - `raise Exception` if validation fails
+  - `Review` is initialized with a `Viewer` instance, a `Movie` instance, and a rating
+- `Review property rating`
+  - Returns the rating
+  - Ratings must be of type `int`
+  - Ratings must be between 1 and 5, inclusive
+  - Ratings **cannot be** changed after the review is initialized
+  - _hint: hasattr()_
 
-### Object Relationship Attributes and Properties
+### Object Relationship Methods and Properties
 
 #### Review
 
-- `Review property viewer()`
-  - Returns the viewer who wrote the review.
-  - Viewers must be `Viewer` instances.
-  - `raise Exception` if validation fails.
-- `Review property movie()`
-  - Returns the movie that is being reviewed.
-  - Movies must be `Movie` instances.
-  - `raise Exception` if validation fails.
+- `Review property viewer`
+  - Returns the viewer object who wrote the review
+  - Must be of type `Viewer`
+  - Viewers **can be changed** after the review object is initialized
+- `Review property movie`
+  - Returns the movie that is being reviewed
+  - Must be of type `Movie`
+  - Movies **can be changed** after the review object is initialized
 
 #### Viewer
 
-- `Viewer reviews(self, new_review=None)`
-  - Adds a new review to a viewer's reviews if passed a `Review` instance.
-  - Returns a list of `Review` instances associated with the `Viewer` instance.
-  - _This method should be called from `Review.__init__`_
-- `Viewer reviewed_movies(self, new_movie=None)`
-  - Adds a new movie to a viewer's reviewed movies if passed a `Movie` instance.
-  - Returns a list of `Movie` instances reviewed by the `Viewer` instance.
-  - _This method should be called from `Review.__init__`_
+- `Viewer reviews()`
+  - Returns a list of reviews associated with the `Viewer` instance.
+  - Must be of type `Review`
+- `Viewer reviewed_movies(self)`
+  - Returns a **unique** list of movies reviewed by the `Viewer` instance.
+  - Must be of type `Movie`
 
 #### Movie
 
-- `Movie reviews(self, new_review=None)`
-  - Adds a new review to a movie's reviews if passed a `Review` instance.
-  - Returns a list of all the `Review` instances for the `Movie`.
-  - _This method should be called from `Review.__init__`_
-  - _Stretch goal: only the most recent review should persist for each viewer._
-- `Movie reviewers(self, new_viewer=None)`
-  - Adds a new viewer to a movie's reviewers if passed a `Viewer` instance.
-  - Reviewers must be _unique_.
-  - Returns a list of all of the `Viewer` instances that reviewed the `Movie`.
-  - _This method should be called from `Review.__init__`_
+- `Movie reviews()`
+  - Returns a list of reviews associated with the `Movie` instance.
+  - Must be of type `Review`
+- `Movie reviewers()`
+  - Returns a **unique** list of viewers that reviewed the `Movie` instance.
+  - Must be of type `Viewer`
 
 ### Aggregate and Association Methods
 
 #### Viewer
 
-- `Viewer has_reviewed_movie(self, movie)`
-  - Returns `True` if the `Viewer` has reviewed this `Movie` (if there is a
-    `Review` instance that has this `Viewer` and `Movie`), returns `False`
-    otherwise
+- `Viewer has_reviewed_movie(movie)`
+  - Receives a `Movie` instance as argument
+  - Returns `True` if the viewer has reviewed the `Movie` instance provided
+  - Returns `False` otherwise
+- `Viewer add_review(movie, rating)`
+  - Receives a `Movie` instance and a rating integer as arguments
+  - Creates and returns a new review associates with the viewer and movie provided
 
 #### Movie
 
-- `Movie average_rating(self)`
-  - Returns the average of all ratings for the `Movie` instance
-  - To average ratings, add all ratings together and divide by the total number
-    of ratings.
-- `Movie classmethod highest_rated(cls)`
+- `Movie average_rating()`
+  - Returns the average of all ratings for the `Movie` instance.
+  - Rounds the result to the first decimal digit
+  - Returns `None` if there are no reviews for the `Movie` instance
+  - Reminder: you can calculate the average by adding all ratings together and dividing by the total number of ratings.
+- `Movie classmethod highest_rated()`
   - Returns the `Movie` instance with the highest average rating.
+  - Returns `None` if there are no reviews
+
+### Bonus: Aggregate and Association Method
+
+- `Viewer classmethod top_positive_reviewer()`
+  - **Reminder**: a review is considered positive if its rating is between 3 and 5, inclusive
+  - Returns the `Viewer` instance with the most positive reviews
+  - Returns `None` if there are no positive reviews
+  - Uncomment lines 141-157 in the viewer_test file
+  - _hint: will need a way to remember all viewer objects_
+
+### Bonus: For any invalid inputs raise an `Exception`.
+- First, **comment out** the following lines
+  - **viewer_test.py**
+    - lines 28-29, and 43-44
+  - **movie_test.py**
+    - lines 24-25
+  - **review_test.py**
+    - lines 27-28, 31-32, 49-50, 53-54, 89-90, and 122-123
+- Then, **uncomment** the following lines in the test files
+  - **viewer_test.py**
+    - lines 32-33, 47-48, and 51-52
+  - **movie_test.py**
+    - lines 28-29, and 40-41
+  - **review_test.py**
+    - lines 35-36, 39-40, 57-58, 61-62, 93-94, and 126-127
