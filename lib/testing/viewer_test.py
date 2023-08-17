@@ -1,12 +1,12 @@
 import pytest
 
-from classes.movie import Movie
-from classes.review import Review
-from classes.viewer import Viewer
+from classes.many_to_many import Movie
+from classes.many_to_many import Review
+from classes.many_to_many import Viewer
 
 
 class TestViewer:
-    """Viewer in viewer.py"""
+    """Viewer in many_to_many.py"""
 
     def test_has_username(self):
         """Viewer is initialized with a username"""

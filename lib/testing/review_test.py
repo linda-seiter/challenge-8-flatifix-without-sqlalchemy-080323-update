@@ -1,11 +1,11 @@
 import pytest
 
-from classes.movie import Movie
-from classes.review import Review
-from classes.viewer import Viewer
+from classes.many_to_many import Movie
+from classes.many_to_many import Review
+from classes.many_to_many import Viewer
 
 class TestReview:
-    '''Review in review.py'''
+    '''Review in many_to_many.py'''
 
     def test_has_rating(self):
         '''Review is initialized with a rating'''

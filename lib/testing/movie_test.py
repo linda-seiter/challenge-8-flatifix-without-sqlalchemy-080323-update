@@ -1,11 +1,11 @@
 import pytest
 
-from classes.movie import Movie
-from classes.review import Review
-from classes.viewer import Viewer
+from classes.many_to_many import Movie
+from classes.many_to_many import Review
+from classes.many_to_many import Viewer
 
 class TestMovie:
-    '''Movie in movie.py'''
+    '''Movie in many_to_many.py'''
 
     def test_has_title(self):
         '''Movie is initialized with a title'''
