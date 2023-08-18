@@ -31,11 +31,15 @@ class TestMovie:
     def test_title_length(self):
         '''title must be longer than 0 characters'''
         movie = Movie("Avatar: The Way of Water")
-        movie.title = ""
         
+        # comment out the next two lines if using Exceptions
+        movie.title = ""
         assert movie.title == "Avatar: The Way of Water"
         
-
+        # uncomment the next two lines if using Exceptions
+        # with pytest.raises(Exception):
+        #     movie.title = ""
+        
         # uncomment the next two lines if using Exceptions
         # with pytest.raises(Exception):
         #     Movie("")
