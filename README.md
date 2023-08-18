@@ -22,17 +22,17 @@ start coding_. Remember to identify a single source of truth for your data.
 
 ## Instructions
 
-To get started, run `pipenv install` while inside of this directory. Then run `pipenv shell` to jump into the shell.
+To get started, run `pipenv install` while inside of this directory. Then run
+`pipenv shell` to jump into the shell.
 
 Build out all of the methods listed in the deliverables. The methods are listed
 in a suggested order, but you can feel free to tackle the ones you think are
 easiest. Be careful: some of the later methods rely on earlier ones.
 
 **Remember!** This code challenge is test-driven. You can run `pytest` at any
-time to check your work.
-You'll need to create your own sample instances so that you can try out your
-code on your own. Make sure your relationships and methods work in the console
-before submitting.
+time to check your work. You'll need to create your own sample instances so that
+you can try out your code on your own. Make sure your relationships and methods
+work in the console before submitting.
 
 We've provided you with a tool that you can use to test your code. To use it,
 run `python debug.py` from the command line. This will start a `ipdb` session
@@ -77,14 +77,14 @@ build out any helper methods if needed.
 - `Viewer property username`
   - Returns the viewer's username
   - Usernames must be of type `str`
-  - Usernames must be between 6 and 16 characters,
-    inclusive
+  - Usernames must be between 6 and 16 characters, inclusive
   - Usernames **can be** changed after the Viewer is initialized
 
 #### Review
 
 - `Review __init__(self, viewer, movie, rating)`
-  - `Review` is initialized with a `Viewer` instance, a `Movie` instance, and a rating
+  - `Review` is initialized with a `Viewer` instance, a `Movie` instance, and a
+    rating
 - `Review property rating`
   - Returns the rating
   - Ratings must be of type `int`
@@ -133,7 +133,8 @@ build out any helper methods if needed.
   - Returns `False` otherwise
 - `Viewer add_review(movie, rating)`
   - Receives a `Movie` instance and a rating integer as arguments
-  - Creates and returns a new review associates with the viewer and movie provided
+  - Creates and returns a new review associates with the viewer and movie
+    provided
 
 #### Movie
 
@@ -141,7 +142,8 @@ build out any helper methods if needed.
   - Returns the average of all ratings for the `Movie` instance.
   - Rounds the result to the first decimal digit
   - Returns `None` if there are no reviews for the `Movie` instance
-  - Reminder: you can calculate the average by adding all ratings together and dividing by the total number of ratings.
+  - Reminder: you can calculate the average by adding all ratings together and
+    dividing by the total number of ratings.
 - `Movie classmethod highest_rated()`
   - Returns the `Movie` instance with the highest average rating.
   - Returns `None` if there are no reviews
@@ -149,24 +151,26 @@ build out any helper methods if needed.
 ### Bonus: Aggregate and Association Method
 
 - `Viewer classmethod top_positive_reviewer()`
-  - **Reminder**: a review is considered positive if its rating is between 3 and 5, inclusive
+  - **Reminder**: a review is considered positive if its rating is between 3 and
+    5, inclusive
   - Returns the `Viewer` instance with the most positive reviews
   - Returns `None` if there are no positive reviews
   - Uncomment lines 141-157 in the viewer_test file
   - _hint: will need a way to remember all viewer objects_
 
 ### Bonus: For any invalid inputs raise an `Exception`.
+
 - First, **comment out** the following lines
   - **viewer_test.py**
-    - lines 28-29, and 43-44
+    - lines 27-28, 39-40, and 43-44
   - **movie_test.py**
-    - lines 24-25
+    - lines 24-25, 36-37
   - **review_test.py**
     - lines 27-28, 31-32, 49-50, 53-54, 89-90, and 122-123
 - Then, **uncomment** the following lines in the test files
   - **viewer_test.py**
-    - lines 32-33, 47-48, and 51-52
+    - lines 31-32, 47-48, and 51-52
   - **movie_test.py**
-    - lines 28-29, and 40-41
+    - lines 28-29, 40-41, and 44-45
   - **review_test.py**
     - lines 35-36, 39-40, 57-58, 61-62, 93-94, and 126-127
