@@ -4,7 +4,6 @@ from classes.many_to_many import Movie
 from classes.many_to_many import Review
 from classes.many_to_many import Viewer
 
-
 class TestViewer:
     """Viewer in many_to_many.py"""
 
@@ -35,8 +34,9 @@ class TestViewer:
     def test_username_length(self):
         """usernames must be between 6 and 16 characters, inclusive"""
         viewer = Viewer("gustave_the_cat")
+        
+        # comment out the next two lines if using Exceptions
         viewer.username = "abcdefghijklmnopq"
-
         assert viewer.username == "gustave_the_cat"
 
         # comment out the next two lines if using Exceptions
@@ -147,9 +147,9 @@ class TestViewer:
     #     movie_2 = Movie("The Bourne Identity")
     #     Review(viewer_1, movie_1, 4)
     #     Review(viewer_1, movie_2, 2)
+    #     Review(viewer_1, movie_1, 1)
     #     Review(viewer_2, movie_1, 3)
     #     Review(viewer_2, movie_1, 5)
-    #     Review(viewer_2, movie_2, 1)
 
     #     assert Viewer.top_positive_reviewer() == viewer_2
     

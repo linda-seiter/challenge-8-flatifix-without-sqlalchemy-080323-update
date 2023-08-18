@@ -11,8 +11,8 @@ class TestReview:
         '''Review is initialized with a rating'''
         movie = Movie("101 Dalmatians")
         viewer = Viewer("pongo_the_dog")
-        review_1 = Review(movie, viewer, 5)
-        review_2 = Review(movie, viewer, 4)
+        review_1 = Review(viewer, movie, 5)
+        review_2 = Review(viewer, movie, 4)
 
         assert review_1.rating == 5
         assert review_2.rating == 4
@@ -21,7 +21,7 @@ class TestReview:
         """ratings are of type int and cannot be changed after initialization"""
         movie = Movie("101 Dalmatians")
         viewer = Viewer("pongo_the_dog")
-        review_1 = Review(movie, viewer, 5)
+        review_1 = Review(viewer, movie, 5)
         
         # comment out the next two lines if using Exceptions
         review_1.rating = 4
@@ -37,13 +37,13 @@ class TestReview:
         
         # uncomment the next two lines if using Exceptions
         # with pytest.raises(Exception):
-        #     Review(movie, viewer, "three")
+        #     Review(viewer, movie, "three")
         
     def test_rating_range(self):
         '''ratings must be between 1 and 5, inclusive.'''
         movie = Movie("Breathless")
         viewer = Viewer("snap_the_turtle")
-        review_1 = Review(movie, viewer, 5)
+        review_1 = Review(viewer, movie, 5)
         
         # comment out the next two lines if using Exceptions
         review_1.rating = 6
@@ -55,11 +55,11 @@ class TestReview:
         
         # uncomment the next two lines if using Exceptions
         # with pytest.raises(Exception):
-        #     Review(movie, viewer, 6)
+        #     Review(viewer, movie, 6)
         
         # uncomment the next two lines if using Exceptions
         # with pytest.raises(Exception):
-        #     Review(movie, viewer, 0)
+        #     Review(viewer, movie, 0)
 
     def test_has_a_viewer(self):
         '''review has a viewer'''
