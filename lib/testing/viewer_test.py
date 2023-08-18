@@ -138,8 +138,8 @@ class TestViewer:
         assert movie_1 in viewer.reviewed_movies()
         assert movie_2 in viewer.reviewed_movies()
 
-    # def test_top_positive_reviewer(self):
-    #     """returns the viewer who has the most positive reviews"""
+    # def test_reviewer(self):
+    #     """returns the viewer who has the most reviews"""
     #     Review.all = []
     #     viewer_1 = Viewer("fabio_the_hmstr")
     #     viewer_2 = Viewer("fanny_the_dog")
@@ -151,8 +151,7 @@ class TestViewer:
     #     Review(viewer_2, movie_1, 3)
     #     Review(viewer_2, movie_1, 5)
 
-    #     assert Viewer.top_positive_reviewer() == viewer_2
+    #     assert Viewer.top_reviewer() == viewer_1
     
     #     Review.all = []
-    #     assert Viewer.top_positive_reviewer() is None
-
+    #     assert Viewer.top_reviewer() is None
