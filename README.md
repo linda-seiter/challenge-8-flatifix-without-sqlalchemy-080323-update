@@ -150,11 +150,9 @@ build out any helper methods if needed.
 
 ### Bonus: Aggregate and Association Method
 
-- `Viewer classmethod top_positive_reviewer()`
-  - **Reminder**: a review is considered positive if its rating is between 3 and
-    5, inclusive
-  - Returns the `Viewer` instance with the most positive reviews
-  - Returns `None` if there are no positive reviews
+- `Viewer classmethod top_reviewer()`
+  - Returns the `Viewer` instance with the most reviews
+  - Returns `None` if there are no reviews
   - Uncomment lines 141-157 in the viewer_test file
   - _hint: will need a way to remember all viewer objects_
 
