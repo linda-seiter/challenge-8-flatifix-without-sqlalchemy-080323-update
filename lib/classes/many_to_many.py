@@ -115,14 +115,11 @@ class Viewer:
 
     def add_review(self, movie, rating):
         return Review(self, movie, rating)
-    
-    def num_positive_reviews(self):
-        return len([review for review in self.reviews() if 3 <= review.rating <= 5])
-        
+       
     @classmethod
-    def top_positive_reviewer(cls):
-        if cls.all:
-            top = max(cls.all, key=lambda viewer: viewer.num_positive_reviews() )
-            if top.num_positive_reviews() > 0:
-                return top
-        return None
+    def top_reviewer(cls):
+        if cls.all and Review.all:
+            return max(cls.all, key=lambda viewer: len(viewer.reviews()) )
+        else :
+            return None
+
