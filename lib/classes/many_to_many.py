@@ -17,7 +17,7 @@ class Movie:
             self._title = title
         else:
             return None
-            # raise Exception("Title must be a string between 1 and 255 characters, inclusive."
+            # raise Exception("Title must be a non-empty string")
 
     def reviews(self):
         return [review for review in Review.all if review.movie == self]
@@ -85,8 +85,12 @@ class Review:
 
         
 class Viewer:
+    
+    all = []
+    
     def __init__(self, username):
         self.username = username
+        type(self).all.append(self)
     
     @property
     def username(self):
@@ -111,3 +115,14 @@ class Viewer:
 
     def add_review(self, movie, rating):
         return Review(self, movie, rating)
+    
+    def num_positive_reviews(self):
+        return len([review for review in self.reviews() if 3 <= review.rating <= 5])
+        
+    @classmethod
+    def top_positive_reviewer(cls):
+        if cls.all:
+            top = max(cls.all, key=lambda viewer: viewer.num_positive_reviews() )
+            if top.num_positive_reviews() > 0:
+                return top
+        return None
