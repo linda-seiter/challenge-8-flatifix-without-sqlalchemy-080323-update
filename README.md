@@ -63,113 +63,114 @@ build out any helper methods if needed.
 #### Movie
 
 - `Movie __init__(self, title)`
-- `Movie` is initialized with a title
+  - `Movie` is initialized with a title
 - `Movie property title`
-- Returns the movie's title
-- Titles must be of type `str`
-- Titles must be longer than 0 characters
-- Title **can be** changed after the `Movie` is initialized
+  - Returns the movie's title
+  - Titles must be of type `str`
+  - Titles must be longer than 0 characters
+  - Title **can be** changed after the `Movie` is initialized
 
 #### Viewer
 
 - `Viewer __init__(self, username)`
-- `Viewer` is initialized with a username
+  - `Viewer` is initialized with a username
 - `Viewer property username`
-- Returns the viewer's username
-- Usernames must be of type `str`
-- Usernames must be between 6 and 16 characters, inclusive
-- Usernames **can be** changed after the Viewer is initialized
+  - Returns the viewer's username
+  - Usernames must be of type `str`
+  - Usernames must be between 6 and 16 characters, inclusive
+  - Usernames **can be** changed after the Viewer is initialized
 
 #### Review
 
 - `Review __init__(self, viewer, movie, rating)`
-- `Review` is initialized with a `Viewer` instance, a `Movie` instance, and a
-  rating
+  - `Review` is initialized with a `Viewer` instance, a `Movie` instance, and a
+    rating
 - `Review property rating`
-- Returns the rating
-- Ratings must be of type `int`
-- Ratings must be between 1 and 5, inclusive
-- Ratings **cannot be** changed after the review is initialized
-- _hint: hasattr()_
+  - Returns the rating
+  - Ratings must be of type `int`
+  - Ratings must be between 1 and 5, inclusive
+  - Ratings **cannot be** changed after the review is initialized
+  - _hint: hasattr()_
 
 ### Object Relationship Methods and Properties
 
 #### Review
 
 - `Review property viewer`
-- Returns the viewer object who wrote the review
-- Must be of type `Viewer`
-- Viewers **can be changed** after the review object is initialized
+  - Returns the viewer object who wrote the review
+  - Must be of type `Viewer`
+  - Viewers **can be changed** after the review object is initialized
 - `Review property movie`
-- Returns the movie that is being reviewed
-- Must be of type `Movie`
-- Movies **can be changed** after the review object is initialized
+  - Returns the movie that is being reviewed
+  - Must be of type `Movie`
+  - Movies **can be changed** after the review object is initialized
 
 #### Viewer
 
 - `Viewer reviews()`
-- Returns a list of reviews associated with the `Viewer` instance.
-- Must be of type `Review`
+  - Returns a list of reviews associated with the `Viewer` instance.
+  - Must be of type `Review`
 - `Viewer reviewed_movies(self)`
-- Returns a **unique** list of movies reviewed by the `Viewer` instance.
-- Must be of type `Movie`
+  - Returns a **unique** list of movies reviewed by the `Viewer` instance.
+  - Must be of type `Movie`
 
 #### Movie
 
 - `Movie reviews()`
-- Returns a list of reviews associated with the `Movie` instance.
-- Must be of type `Review`
+  - Returns a list of reviews associated with the `Movie` instance.
+  - Must be of type `Review`
 - `Movie reviewers()`
-- Returns a **unique** list of viewers that reviewed the `Movie` instance.
-- Must be of type `Viewer`
+  - Returns a **unique** list of viewers that reviewed the `Movie` instance.
+  - Must be of type `Viewer`
 
 ### Aggregate and Association Methods
 
 #### Viewer
 
 - `Viewer has_reviewed_movie(movie)`
-- Receives a `Movie` instance as argument
-- Returns `True` if the viewer has reviewed the `Movie` instance provided
-- Returns `False` otherwise
+  - Receives a `Movie` instance as argument
+  - Returns `True` if the viewer has reviewed the `Movie` instance provided
+  - Returns `False` otherwise
 - `Viewer add_review(movie, rating)`
-- Receives a `Movie` instance and a rating integer as arguments
-- Creates and returns a new review associates with the viewer and movie provided
+  - Receives a `Movie` instance and a rating integer as arguments
+  - Creates and returns a new review associates with the viewer and movie
+    provided
 
 #### Movie
 
 - `Movie average_rating()`
-- Returns the average of all ratings for the `Movie` instance.
-- Rounds the result to the first decimal digit
-- Returns `None` if there are no reviews for the `Movie` instance
-- Reminder: you can calculate the average by adding all ratings together and
-  dividing by the total number of ratings.
+  - Returns the average of all ratings for the `Movie` instance.
+  - Rounds the result to the first decimal digit
+  - Returns `None` if there are no reviews for the `Movie` instance
+  - Reminder: you can calculate the average by adding all ratings together and
+    dividing by the total number of ratings.
 - `Movie classmethod highest_rated()`
-- Returns the `Movie` instance with the highest average rating.
-- Returns `None` if there are no reviews
+  - Returns the `Movie` instance with the highest average rating.
+  - Returns `None` if there are no reviews
 
 ### Bonus: Aggregate and Association Method
 
 - `Viewer classmethod top_positive_reviewer()`
-- **Reminder**: a review is considered positive if its rating is between 3 and
-  5, inclusive
-- Returns the `Viewer` instance with the most positive reviews
-- Returns `None` if there are no positive reviews
-- Uncomment lines 141-157 in the viewer_test file
-- _hint: will need a way to remember all viewer objects_
+  - **Reminder**: a review is considered positive if its rating is between 3 and
+    5, inclusive
+  - Returns the `Viewer` instance with the most positive reviews
+  - Returns `None` if there are no positive reviews
+  - Uncomment lines 141-157 in the viewer_test file
+  - _hint: will need a way to remember all viewer objects_
 
 ### Bonus: For any invalid inputs raise an `Exception`.
 
 - First, **comment out** the following lines
-- **viewer_test.py**
-- lines 27-28, 39-40, and 43-44
-- **movie_test.py**
-- lines 24-25, 36-37
-- **review_test.py**
-- lines 27-28, 31-32, 49-50, 53-54, 89-90, and 122-123
+  - **viewer_test.py**
+    - lines 27-28, 39-40, and 43-44
+  - **movie_test.py**
+    - lines 24-25, 36-37
+  - **review_test.py**
+    - lines 27-28, 31-32, 49-50, 53-54, 89-90, and 122-123
 - Then, **uncomment** the following lines in the test files
-- **viewer_test.py**
-- lines 31-32, 47-48, and 51-52
-- **movie_test.py**
-- lines 28-29, 40-41, and 44-45
-- **review_test.py**
-- lines 35-36, 39-40, 57-58, 61-62, 93-94, and 126-127
+  - **viewer_test.py**
+    - lines 31-32, 47-48, and 51-52
+  - **movie_test.py**
+    - lines 28-29, 40-41, and 44-45
+  - **review_test.py**
+    - lines 35-36, 39-40, 57-58, 61-62, 93-94, and 126-127
