@@ -153,7 +153,7 @@ build out any helper methods if needed.
 - `Viewer classmethod top_reviewer()`
   - Returns the `Viewer` instance with the most reviews
   - Returns `None` if there are no reviews
-  - Uncomment lines 141-157 in the viewer_test file
+  - Uncomment lines 141-159 in the viewer_test file
   - _hint: will need a way to remember all viewer objects_
 
 ### Bonus: For any invalid inputs raise an `Exception`.

@@ -141,10 +141,15 @@ class TestViewer:
     # def test_reviewer(self):
     #     """returns the viewer who has the most reviews"""
     #     Review.all = []
+    #     Viewer.all = []
+    #     assert Viewer.top_reviewer() is None
+        
     #     viewer_1 = Viewer("fabio_the_hmstr")
     #     viewer_2 = Viewer("fanny_the_dog")
     #     movie_1 = Movie("The Bourne Ultimatum")
     #     movie_2 = Movie("The Bourne Identity")
+    #     assert Viewer.top_reviewer() is None
+        
     #     Review(viewer_1, movie_1, 4)
     #     Review(viewer_1, movie_2, 2)
     #     Review(viewer_1, movie_1, 1)
@@ -152,6 +157,3 @@ class TestViewer:
     #     Review(viewer_2, movie_1, 5)
 
     #     assert Viewer.top_reviewer() == viewer_1
-    
-    #     Review.all = []
-    #     assert Viewer.top_reviewer() is None

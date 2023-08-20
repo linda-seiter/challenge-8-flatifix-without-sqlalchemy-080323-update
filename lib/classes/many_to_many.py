@@ -118,8 +118,8 @@ class Viewer:
        
     @classmethod
     def top_reviewer(cls):
-        if cls.all and Review.all:
-            return max(cls.all, key=lambda viewer: len(viewer.reviews()) )
-        else :
-            return None
-
+        return (
+            max(cls.all, key=lambda viewer: len(viewer.reviews()) )
+            if Review.all
+            else None
+        )
